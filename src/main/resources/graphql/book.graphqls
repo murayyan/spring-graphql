@@ -1,0 +1,34 @@
+type Query {
+    getAllBooks: [Book]
+}
+
+type Mutation {
+    addBook(bookInput: BookInput!): Book
+}
+
+type Book {
+    id: ID!
+    title: String
+    pages: Int
+    rating: Rating
+    author: Author
+}
+
+type Rating {
+    star: String
+}
+
+input BookInput {
+    title: String!
+    pages: Int!
+    rating: RatingInput!
+    author: ID!
+}
+
+enum RatingInput {
+    ONE,
+    TWO,
+    THREE,
+    FOUR
+    FIVE
+}
